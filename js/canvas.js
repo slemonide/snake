@@ -1,14 +1,14 @@
 HEAD_START = {"x" : 1, "y" : 1};
 TAIL_START = [];
-var snake = {"head" : HEAD_START, "tail" : TAIL_START};
+//var snake = {"head" : HEAD_START, "tail" : TAIL_START};
 
 var canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth - 5;
 canvas.height = window.innerHeight - 5;
 
 var ctx = canvas.getContext("2d");
-ctx.arc(50 * snake.head.x,
-        50 * snake.head.y,
+ctx.arc(50,
+        50,
         20,0,Math.PI*2);
 ctx.fillStyle = "green";
 ctx.fill();
