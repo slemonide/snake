@@ -1,6 +1,6 @@
 function initializeCanvas() {
-    RenderManager.canvas.width = window.innerWidth - 20;
-    RenderManager.canvas.height = window.innerHeight - 20;
+    RenderManager.canvas.width = window.innerWidth;
+    RenderManager.canvas.height = window.innerHeight;
 }
 
 function draw(){
