@@ -1,34 +1,6 @@
 function initializeCanvas() {
-    RenderManager.canvas.width = window.innerWidth - 5;
-    RenderManager.canvas.height = window.innerHeight - 5;
-
-// Direction is one of:
-// - "LEFT"
-// - "RIGHT"
-// - "UP"
-// - "DOWN"
-// represents the direction of snake's head
-// TODO i think having using adding an event listener is better (look below)
-    RenderManager.canvas.onkeydown = function (event) {
-        switch (event.key) {
-            case "w":
-            case "ArrowUp":
-                FieldManager.move("UP");
-                break;
-            case "a":
-            case "ArrowLeft":
-                FieldManager.move("LEFT");
-                break;
-            case "s":
-            case "ArrowDown":
-                FieldManager.move("DOWN");
-                break;
-            case "d":
-            case "ArrowRight":
-                FieldManager.move("RIGHT");
-                break;
-        }
-    };
+    RenderManager.canvas.width = window.innerWidth - 20;
+    RenderManager.canvas.height = window.innerHeight - 20;
 }
 
 function draw(){
@@ -79,19 +51,24 @@ function drawSnake(){
 
 // keyboard listener
 function keyDownHandler(e){
-    if(e.keyCode == 65 || e.keyCode == 37){ // a or left arrow
-        snakeDir = dir.LEFT;
+    switch (e.key) {
+        case "w":
+        case "ArrowUp":
+            snakeDir = dir.UP;
+            break;
+        case "a":
+        case "ArrowLeft":
+            snakeDir = dir.LEFT;
+            break;
+        case "s":
+        case "ArrowDown":
+            snakeDir = dir.DOWN;
+            break;
+        case "d":
+        case "ArrowRight":
+            snakeDir = dir.RIGHT;
+            break;
     }
-    else if(e.keyCode == 83 || e.keyCode == 40){ // s or down arrow
-        snakeDir = dir.DOWN;
-    }
-    else if(e.keyCode == 87 || e.keyCode == 38){ // w or up arrow
-         snakeDir = dir.UP;
-    }
-    else if(e.keyCode == 68 || e.keyCode == 39) { // d or right arrow
-        snakeDir = dir.RIGHT;
-    }
-
 }
 document.addEventListener("keydown", keyDownHandler, false);
 
